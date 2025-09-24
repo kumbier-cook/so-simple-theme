@@ -6,20 +6,10 @@ layout: default
   <article>
     <div class="page-wrapper">
       <header class="page-header">
-        {% if page.id %}
-          {% assign title = page.title | markdownify | strip_html %}
-        {% else %}
-          {% assign title = page.title %}
-        {% endif %}
-        {% if page.link %}
-          <h1 id="page-title" class="page-title"><a href="{{ page.link }}">{{ title }} <span class="link-arrow">&rarr;</span></a></h1>
-        {% else %}
-          <h1 id="page-title" class="page-title">{{ title }}</h1>
-        {% endif %}
+        <h1 id="page-title" class="page-title">{{ site.title | default: "Kumbier Cookbook" }}</h1>
       </header>
       
       <nav class="category-nav">
-        <a href="{{ '/' | relative_url }}" class="category-nav-item">Home</a>
         <a href="{{ '/search/' | relative_url }}" class="category-nav-item">Search</a>
         {% assign recipe_categories = "Mains,Desserts,Doughs,Salads,Sauces & dips" | split: "," %}
         {% for category in recipe_categories %}
