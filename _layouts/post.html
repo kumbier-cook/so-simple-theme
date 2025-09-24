@@ -4,8 +4,8 @@ layout: default
 
 <main id="main" class="main-content" aria-label="Content">
   <article class="h-entry">
-    {% include page-image.html %}
     <div class="page-wrapper">
+      <!-- Large title at top -->
       <header class="page-header">
         {% assign title = page.title | markdownify | strip_html %}
         {% if page.link %}
@@ -15,15 +15,86 @@ layout: default
         {% endif %}
       </header>
 
+      <!-- Two column layout: ingredients left, image right -->
+      <div class="post-two-column">
+        <div class="post-left-column">
+          <!-- Extract and display ingredients section -->
+          {% assign content_parts = content | split: '# Ingredients' %}
+          {% if content_parts.size > 1 %}
+            {% assign before_ingredients = content_parts[0] %}
+            {% assign after_ingredients_split = content_parts[1] | split: '# ' %}
+            {% assign ingredients_content = after_ingredients_split[0] %}
+            
+            <!-- Show content before ingredients -->
+            {{ before_ingredients }}
+            
+            <!-- Show ingredients section -->
+            <h2>Ingredients</h2>
+            {{ ingredients_content | markdownify }}
+          {% else %}
+            <!-- Fallback if no ingredients section found -->
+            {% assign content_parts = content | split: '# Ingredients' %}
+            {% if content_parts.size > 1 %}
+              {% assign before_ingredients = content_parts[0] %}
+              {% assign after_ingredients_split = content_parts[1] | split: '# ' %}
+              {% assign ingredients_content = after_ingredients_split[0] %}
+              
+              {{ before_ingredients }}
+              <h2>Ingredients</h2>
+              {{ ingredients_content | markdownify }}
+            {% else %}
+              <!-- No ingredients section, show first part of content -->
+              {% assign paragraphs = content | split: '</p>' %}
+              {% for i in (0..2) %}
+                {% if paragraphs[i] %}{{ paragraphs[i] }}</p>{% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endif %}
+        </div>
+        
+        <div class="post-right-column">
+          <!-- Display image -->
+          {% if page.image %}
+            {% assign page_image = page.image.path | default: page.image %}
+            {% unless page_image contains '://' %}
+              {% assign page_image = page_image | relative_url %}
+            {% endunless %}
+            {% assign page_image = page_image | escape %}
+            
+            <div class="post-image">
+              <img src="{{ page_image }}" class="post-feature-image u-photo" alt="{{ page.title }}">
+              {% if page.image.caption %}
+                <div class="post-image-caption">{{ page.image.caption | markdownify }}</div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Sidebar -->
       <div class="page-sidebar">
         {% include page-author.html %}
         {% include page-categories.html %}
         {% include page-tags.html %}
       </div>
 
+      <!-- Single column for remaining content -->
       <div class="page-content">
         <div class="e-content">
-          {{ content }}
+          {% assign content_parts = content | split: '# Ingredients' %}
+          {% if content_parts.size > 1 %}
+            {% assign after_ingredients = content_parts[1] %}
+            {% assign remaining_parts = after_ingredients | split: '# ' %}
+            {% for i in (1..remaining_parts.size) %}
+              {% if remaining_parts[i] %}
+                <h2>{{ remaining_parts[i] | split: "\n" | first }}</h2>
+                {{ remaining_parts[i] | split: "\n" | shift | join: "\n" | markdownify }}
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            <!-- Fallback for posts without ingredients -->
+            {{ content }}
+          {% endif %}
         </div>
 
         {% if page.share %}
@@ -33,7 +104,6 @@ layout: default
         {% if site.disqus.shortname %}
           {% include disqus-comments.html %}
         {% endif %}
-
       </div>
     </div>
   </article>

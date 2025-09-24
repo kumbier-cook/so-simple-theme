@@ -286,3 +286,49 @@
     max-width: $main-sidebar-max-width;
   }
 }
+
+/* Post layout styles */
+.post-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  margin-bottom: 2rem;
+  
+  @include breakpoint($medium down) {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+}
+
+.post-left-column {
+  /* Styles for left column content */
+  padding-right: 1rem;
+  
+  @include breakpoint($medium down) {
+    padding-right: 0;
+  }
+}
+
+.post-right-column {
+  /* Styles for right column image */
+  
+  .post-image {
+    position: sticky;
+    top: 2rem;
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: $border-radius;
+    }
+  }
+  
+  .post-image-caption {
+    font-family: $meta-font-family;
+    font-style: italic;
+    font-size: 0.875rem;
+    color: lighten($text-color, 25%);
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+}
