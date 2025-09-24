@@ -3,9 +3,10 @@ layout: page
 ---
 
 <nav class="category-nav">
-  {% assign recipe_categories = "Mains,Appetizers,Sides,Desserts,Sauces" | split: "," %}
+  {% assign recipe_categories = "Mains,Desserts,Doughs,Salads,Sauces & dips" | split: "," %}
   {% for category in recipe_categories %}
-    <a href="/categories/{{ category | downcase }}/" class="category-nav-item">{{ category }}</a>
+    {% assign category_slug = category | downcase | replace: " & ", "-" | replace: " ", "-" %}
+    <a href="/categories/{{ category_slug }}/" class="category-nav-item">{{ category }}</a>
   {% endfor %}
 </nav>
 

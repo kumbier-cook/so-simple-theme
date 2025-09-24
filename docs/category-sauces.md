@@ -1,7 +1,7 @@
 ---
-title: "Sauces"
+title: "Sauces & dips"
 layout: category
-permalink: /categories/sauces/
+permalink: /categories/sauces-dips/
 taxonomy: Sauces & dips
 entries_layout: list
 ---

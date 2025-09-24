@@ -6,12 +6,13 @@ layout: page
 
 <!-- Category Navigation Bar -->
 <div class="category-nav">
-  {% assign recipe_categories = "mains,appetizers,sides,desserts,sauces" | split: "," %}
+  {% assign recipe_categories = "Mains,Desserts,Doughs,Salads,Sauces & dips" | split: "," %}
   {% for category in recipe_categories %}
-    {% assign category_url = "/categories/" | append: category | append: "/" %}
+    {% assign category_slug = category | downcase | replace: " & ", "-" | replace: " ", "-" %}
+    {% assign category_url = "/categories/" | append: category_slug | append: "/" %}
     
     <a href="{{ category_url }}" class="category-nav-item">
-      {{ category | capitalize }}
+      {{ category }}
     </a>
   {% endfor %}
 </div>
