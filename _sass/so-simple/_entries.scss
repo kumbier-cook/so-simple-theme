@@ -25,12 +25,21 @@
   margin-bottom: 0.5rem;
   font-family: $title-font-family;
   font-weight: $entry-title-weight;
-  color: #C65D4F;
+  color: #3C3C3C;
   letter-spacing: -1px;
   word-wrap: break-word; /* break long words that could overflow */
 
+  &:hover {
+    color: #C65D4F;
+  }
+
   a {
     text-decoration: none;
+    color: #3C3C3C;
+    
+    &:hover {
+      color: #C65D4F;
+    }
   }
 
   a[rel="bookmark"]::before {

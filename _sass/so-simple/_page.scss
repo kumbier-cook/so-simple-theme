@@ -14,8 +14,12 @@
   margin-bottom: 0.5em;
   font-family: $title-font-family;
   font-weight: $page-title-weight;
-  color: #C65D4F;
+  color: #3C3C3C;
   letter-spacing: -2px;
+  
+  &:hover {
+    color: #C65D4F;
+  }
 }
 
 .page-image {
