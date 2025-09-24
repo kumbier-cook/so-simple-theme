@@ -219,8 +219,7 @@
 }
 
 /* Circle crop images on category pages */
-.layout--category .entry-image,
-.layout--categories .entry-image {
+.entry-image {
   width: 150px !important;
   height: 150px !important;
   border-radius: 50% !important;
