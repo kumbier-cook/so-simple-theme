@@ -4,19 +4,6 @@ layout: page
 
 {{ content }}
 
-<!-- Category Navigation Bar -->
-<div class="category-nav">
-  {% assign recipe_categories = "Mains,Desserts,Doughs,Salads,Sauces & dips" | split: "," %}
-  {% for category in recipe_categories %}
-    {% assign category_slug = category | downcase | replace: " & ", "-" | replace: " ", "-" %}
-    {% assign category_url = "/categories/" | append: category_slug | append: "/" %}
-    
-    <a href="{{ category_url }}" class="category-nav-item">
-      {{ category }}
-    </a>
-  {% endfor %}
-</div>
-
 <!-- Display all categories with their posts -->
 <div class="all-categories">
   {% assign sorted_categories = site.categories | sort %}
