@@ -2,7 +2,7 @@
 title: "Sides"
 layout: category
 permalink: /categories/sides/
-taxonomy: sides
+taxonomy: Sides
 entries_layout: list
 ---
 

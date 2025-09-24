@@ -2,7 +2,7 @@
 title: "Appetizers"
 layout: category
 permalink: /categories/appetizers/
-taxonomy: appetizers
+taxonomy: Appetizers
 entries_layout: list
 ---
 

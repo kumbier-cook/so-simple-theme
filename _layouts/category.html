@@ -4,18 +4,16 @@ layout: page
 
 <!-- Category Navigation Bar -->
 <div class="category-nav">
-  <a href="/categories/" class="category-nav-item">All Categories</a>
-  {% assign main_categories = "Markup,Layout,Edge Case,Media,Post" | split: "," %}
-  {% for category in main_categories %}
-    {% assign category_slug = category | slugify | downcase %}
-    {% assign category_url = "/categories/" | append: category_slug | append: "/" %}
+  {% assign recipe_categories = "mains,appetizers,sides,desserts,sauces" | split: "," %}
+  {% for category in recipe_categories %}
+    {% assign category_url = "/categories/" | append: category | append: "/" %}
     {% assign is_current = false %}
     {% if page.taxonomy == category %}
       {% assign is_current = true %}
     {% endif %}
     
     <a href="{{ category_url }}" class="category-nav-item {% if is_current %}active{% endif %}">
-      {{ category }}
+      {{ category | capitalize }}
     </a>
   {% endfor %}
 </div>

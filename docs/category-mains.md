@@ -2,7 +2,7 @@
 title: "Mains"
 layout: category
 permalink: /categories/mains/
-taxonomy: mains
+taxonomy: Mains
 entries_layout: list
 ---
 

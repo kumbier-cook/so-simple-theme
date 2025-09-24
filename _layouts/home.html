@@ -2,4 +2,11 @@
 layout: page
 ---
 
+<nav class="category-nav">
+  {% assign recipe_categories = "Mains,Appetizers,Sides,Desserts,Sauces" | split: "," %}
+  {% for category in recipe_categories %}
+    <a href="/categories/{{ category | downcase }}/" class="category-nav-item">{{ category }}</a>
+  {% endfor %}
+</nav>
+
 {{ content }}
