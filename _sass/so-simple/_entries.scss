@@ -56,6 +56,21 @@
   margin-bottom: 0.5rem;
 }
 
+/* Circle crop images on category pages */
+.layout--category .entry-image,
+.layout--categories .entry-image {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  transform: scale(0.6) !important;
+  transform-origin: center !important;
+  margin: 0 auto 0.5rem auto !important;
+  max-width: none !important;
+}
+
 .entry-meta {
   .entry-date,
   .read-time {
