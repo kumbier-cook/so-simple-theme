@@ -22,5 +22,8 @@ layout: page
 {{ content }}
 
 <div class="entries-{{ page.entries_layout | default: 'list' }}">
-  {% include posts-category.html taxonomy=page.taxonomy %}
+  {% assign category_posts = site.categories[page.taxonomy] %}
+  {% for entry in category_posts %}
+    {% include entry.html %}
+  {% endfor %}
 </div>
