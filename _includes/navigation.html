@@ -1,31 +1,17 @@
+{% if site.data.navigation %}
   <div class="navigation-wrapper">
     <a href="#menu-toggle" id="menu-toggle">{{ site.data.text[site.locale].menu_label | default: 'Menu' }}</a>
     <nav id="primary-nav" class="site-nav animated drop">
       <ul>
-        <!-- Main navigation items -->
-        <li><a href="{{ '/' | relative_url }}">Home</a></li>
-        <li><a href="{{ '/search/' | relative_url }}">Search</a></li>
-        
-        <!-- Recipe categories -->
-        {% assign recipe_categories = "Mains,Desserts,Doughs,Salads,Sauces & dips" | split: "," %}
-        {% for category in recipe_categories %}
-          {% assign category_slug = category | downcase | replace: " & ", "-" | replace: " ", "-" %}
-          <li><a href="{{ '/categories/' | append: category_slug | append: '/' | relative_url }}">{{ category }}</a></li>
-        {% endfor %}
-        
-        <!-- Additional custom navigation items if defined -->
-        {%- if site.data.navigation -%}
-          {%- for link in site.data.navigation -%}
-            {%- unless link.title == "Home" or link.title == "Search" -%}
-              {%- if link.url contains '://' -%}
-                {%- assign url = link.url -%}
-              {%- else -%}
-                {%- assign url = link.url | relative_url -%}
-              {%- endif -%}
-              <li><a href="{{ url }}">{{ link.title }}</a></li>
-            {%- endunless -%}
-          {%- endfor -%}
-        {%- endif -%}
+        {%- for link in site.data.navigation -%}
+          {%- if link.url contains '://' -%}
+            {%- assign url = link.url -%}
+          {%- else -%}
+            {%- assign url = link.url | relative_url -%}
+          {%- endif -%}
+          <li><a href="{{ url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
       </ul>
     </nav>
   </div><!-- /.navigation-wrapper -->
+{% endif %}

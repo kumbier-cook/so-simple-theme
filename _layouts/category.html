@@ -2,6 +2,20 @@
 layout: page
 ---
 
+<nav class="category-nav">
+  <a href="{{ '/' | relative_url }}" class="category-nav-item">Home</a>
+  <a href="{{ '/search/' | relative_url }}" class="category-nav-item">Search</a>
+  {% assign recipe_categories = "Mains,Desserts,Doughs,Salads,Sauces & dips" | split: "," %}
+  {% for category in recipe_categories %}
+    {% assign category_slug = category | downcase | replace: " & ", "-" | replace: " ", "-" %}
+    {% if page.taxonomy == category %}
+      <a href="{{ '/categories/' | append: category_slug | append: '/' | relative_url }}" class="category-nav-item category-nav-item--active">{{ category }}</a>
+    {% else %}
+      <a href="{{ '/categories/' | append: category_slug | append: '/' | relative_url }}" class="category-nav-item">{{ category }}</a>
+    {% endif %}
+  {% endfor %}
+</nav>
+
 {{ content }}
 
 <div class="entries-{{ page.entries_layout | default: 'list' }}">
