@@ -16,10 +16,6 @@
   font-weight: $page-title-weight;
   color: #3C3C3C;
   letter-spacing: -2px;
-  
-  &:hover {
-    color: #C65D4F;
-  }
 }
 
 .page-image {
@@ -219,6 +215,20 @@
 
   .page-title {
     text-align: center;
+  }
+}
+
+/* Circle crop images on category pages */
+.layout--category,
+.layout--categories {
+  .entry-image {
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+    }
   }
 }
 
