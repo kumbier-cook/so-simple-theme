@@ -12,4 +12,10 @@ layout: page
   {% endfor %}
 </nav>
 
+{% if page.image.path %}
+<div class="home-image">
+  <img src="{{ page.image.path | relative_url }}" alt="Home Image" class="home-image-circle">
+</div>
+{% endif %}
+
 {{ content }}
