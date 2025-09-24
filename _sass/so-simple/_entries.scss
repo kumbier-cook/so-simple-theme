@@ -62,16 +62,11 @@
   width: 200px !important;
   height: 200px !important;
   border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center !important;
   display: block !important;
   margin: 0 auto 0.5rem auto !important;
   max-width: none !important;
-  /* Use object-fit scale-down to show more of image */
-  object-fit: contain !important;
-  object-position: center !important;
-  /* Add padding inside the circle to create zoom out effect */
-  padding: 15px !important;
-  box-sizing: border-box !important;
-  background-color: transparent !important;
 }
 
 .entry-meta {
