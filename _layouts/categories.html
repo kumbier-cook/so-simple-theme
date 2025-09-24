@@ -4,30 +4,4 @@ layout: page
 
 {{ content }}
 
-<div class="category-grid">
-  {% assign sorted_categories = site.categories | sort %}
-  {% for category in sorted_categories %}
-    {% assign category_name = category[0] %}
-    {% assign category_count = category[1].size %}
-    {% assign category_slug = category_name | slugify | downcase %}
-    
-    <div class="category-card">
-      <a href="/categories/{{ category_slug }}/" class="category-link">
-        <h3 class="category-title">{{ category_name }}</h3>
-        <p class="category-count">{{ category_count }} {% if category_count == 1 %}post{% else %}posts{% endif %}</p>
-        
-        <!-- Show preview of latest posts in this category -->
-        <div class="category-preview">
-          {% for post in category[1] limit:3 %}
-            <div class="preview-post">
-              {% if post.image.thumbnail %}
-                <img src="{{ post.image.thumbnail | relative_url }}" alt="{{ post.title }}" class="preview-thumbnail">
-              {% endif %}
-              <span class="preview-title">{{ post.title | truncate: 50 }}</span>
-            </div>
-          {% endfor %}
-        </div>
-      </a>
-    </div>
-  {% endfor %}
-</div>
+<!-- This layout is no longer used since categories.md redirects to /categories/mains/ -->

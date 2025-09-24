@@ -2,6 +2,22 @@
 layout: page
 ---
 
+<!-- Category Navigation Bar -->
+<div class="category-nav">
+  {% assign categories_list = "mains,desserts,appetizers,sides" | split: "," %}
+  {% for category in categories_list %}
+    {% assign category_url = "/categories/" | append: category | append: "/" %}
+    {% assign is_current = false %}
+    {% if page.taxonomy == category %}
+      {% assign is_current = true %}
+    {% endif %}
+    
+    <a href="{{ category_url }}" class="category-nav-item {% if is_current %}active{% endif %}">
+      {{ category | capitalize }}
+    </a>
+  {% endfor %}
+</div>
+
 {{ content }}
 
 <div class="entries-{{ page.entries_layout | default: 'list' }}">
