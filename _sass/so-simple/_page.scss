@@ -222,13 +222,12 @@
 .layout--category,
 .layout--categories {
   .entry-image {
-    img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-    }
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 }
 
