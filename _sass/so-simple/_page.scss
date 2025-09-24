@@ -219,18 +219,17 @@
 }
 
 /* Circle crop images on category pages */
-.layout--category,
-.layout--categories {
-  .entry-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 75%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transform: scale(0.6);
-    transform-origin: center;
-  }
+.layout--category .entry-image,
+.layout--categories .entry-image {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  transform: scale(0.6) !important;
+  transform-origin: center !important;
+  margin: 0 auto 0.5rem auto !important;
 }
 
 .layout--post {
