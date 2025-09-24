@@ -7,38 +7,38 @@
 @import "so-simple/variables";
 @import "so-simple/notices";
 
-/* Colors */
-$base-color: #000 !default;
-$text-color: #000 !default;
-$accent-color: #34374C !default;
-$nav-color: #fff !default;
-$background-color: #fff !default;
-$nav-background-color: #000 !default;
+/* Colors - Custom beige, charcoal, and terra cotta scheme */
+$base-color: #3C3C3C !default; /* Dark charcoal base */
+$text-color: #3C3C3C !default; /* Dark charcoal grey text */
+$accent-color: #C65D4F !default; /* Terra cotta orange for accents and hover */
+$nav-color: #3C3C3C !default; /* Dark charcoal for navigation text */
+$background-color: #F5F5DC !default; /* Beige background */
+$nav-background-color: #F5F5DC !default; /* Beige navigation background */
 $code-background-color: tint($base-color, 95%) !default;
-$border-color: tint($base-color, 80%) !default;
+$border-color: tint($base-color, 70%) !default;
 
-$primary-color: #000 !default;
+$primary-color: #3C3C3C !default; /* Dark charcoal to match text */
 $success-color: #62c462 !default;
 $warning-color: #f89406 !default;
 $danger-color: #ee5f5b !default;
 $info-color: #52adc8 !default;
 
-/* Syntax highlighting (base16) colors */
-$base00: #fafafa !default;
-$base01: #073642 !default;
-$base02: #586e75 !default;
-$base03: #657b83 !default;
-$base04: #839496 !default;
-$base05: #586e75 !default;
-$base06: #eee8d5 !default;
-$base07: #fdf6e3 !default;
-$base08: #dc322f !default;
-$base09: #cb4b16 !default;
-$base0a: #b58900 !default;
-$base0b: #859900 !default;
-$base0c: #2aa198 !default;
-$base0d: #268bd2 !default;
-$base0e: #6c71c4 !default;
-$base0f: #d33682 !default;
+/* Syntax highlighting (base16) colors - adjusted for beige background */
+$base00: #F5F5DC !default; /* beige background */
+$base01: #E6E6D4 !default; /* slightly darker beige */
+$base02: #D4D4AA !default; /* muted beige */
+$base03: #8B8B7A !default; /* medium grey-beige */
+$base04: #6B6B5A !default; /* darker grey-beige */
+$base05: #3C3C3C !default; /* dark charcoal for main text */
+$base06: #2A2A2A !default; /* darker charcoal */
+$base07: #1A1A1A !default; /* darkest charcoal */
+$base08: #C65D4F !default; /* terra cotta for keywords */
+$base09: #D4743F !default; /* orange variant */
+$base0a: #B8860B !default; /* dark golden rod */
+$base0b: #6B8E23 !default; /* olive drab green */
+$base0c: #2F8B8B !default; /* dark turquoise */
+$base0d: #4682B4 !default; /* steel blue */
+$base0e: #9370DB !default; /* medium purple */
+$base0f: #C65D4F !default; /* terra cotta accent */
 
 @import "so-simple/skin";
