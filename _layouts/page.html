@@ -4,7 +4,9 @@ layout: default
 
 <main id="main" class="main-content" aria-label="Content">
   <article>
-    {% include page-image.html %}
+    {% unless layout.name == 'home' %}
+      {% include page-image.html %}
+    {% endunless %}
     <div class="page-wrapper">
       <header class="page-header">
         {% if page.id %}
